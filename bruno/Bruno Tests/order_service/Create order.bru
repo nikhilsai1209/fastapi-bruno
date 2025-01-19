@@ -1,0 +1,47 @@
+meta {
+  name: Create order
+  type: http
+  seq: 1
+}
+
+post {
+  url: http://127.0.0.1:8080/api/v1/orders/
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "user_id": "66eab88bcbe808aaf5c45c63",
+    "restaurant_id": "66e97c0305dd720757ac1912",
+    "items": [
+      {
+        "item_id": "66ea66e4fd6a7ea43f8ec164",
+        "quantity": 12
+      },
+      {
+        "item_id": "66ea6702fd6a7ea43f8ec165",
+        "quantity": 3
+      }
+    ]
+  }
+  
+}
+
+tests {
+  test("Create Order - Status Code Test", function() {
+    expect(res.getStatus()).to.equal(201); // Ensure status code is 201 (Created)
+  });
+  
+  test("Create Order - Response Body Test", function() {
+    const data = res.getBody();
+  
+    expect(data).to.be.an("object"); // Ensure response is an object
+    expect(data.id).to.be.a("string"); // Ensure order id is returned
+    expect(data.user_id).to.equal("66eab88bcbe808aaf5c45c63"); // Verify user_id
+    expect(data.restaurant_id).to.equal("66e97c0305dd720757ac1912"); // Verify restaurant_id
+    expect(data.total_price).to.equal(1500.0); // Verify total price
+    expect(data.items).to.have.lengthOf(2); // Verify the number of items
+  });
+  
+}

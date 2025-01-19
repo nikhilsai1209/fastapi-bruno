@@ -1,0 +1,29 @@
+meta {
+  name: Get Order by ID
+  type: http
+  seq: 2
+}
+
+get {
+  url: http://127.0.0.1:8080/api/v1/orders/66eeb2fa796e7100066b3fc2
+  body: none
+  auth: none
+}
+
+tests {
+  test("Get Order by ID - Status Code Test", function() {
+    expect(res.getStatus()).to.equal(200); // Check if status code is 200 (OK)
+  });
+  
+  test("Get Order by ID - Response Body Test", function() {
+    const data = res.getBody();
+  
+    expect(data).to.be.an("object"); // Check if the response is an object
+    expect(data.id).to.equal("66eeb2fa796e7100066b3fc2"); // Verify order ID
+    expect(data.user_id).to.equal("66eab88bcbe808aaf5c45c63"); // Verify user_id
+    expect(data.restaurant_id).to.equal("66e97c0305dd720757ac1912"); // Verify restaurant_id
+    expect(data.items).to.have.lengthOf(2); // Validate that there are 2 items
+    expect(data.total_price).to.equal(1500.0); // Verify total_price
+  });
+  
+}

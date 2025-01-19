@@ -1,0 +1,27 @@
+meta {
+  name: Item by ID
+  type: http
+  seq: 2
+}
+
+get {
+  url: http://localhost:8000/items/66e915ee84750e7d67b3ec6a
+  body: none
+  auth: none
+}
+
+tests {
+  test("status code test for item by id", function() {
+    expect(res.getStatus()).to.equal(200); // Ensures the response status code is 200
+  });
+  
+  test("response body test for item by id", function() {
+    const data = res.getBody();
+    expect(data).to.be.an('object'); // Validates that the response is an object
+    expect(data.id).to.equal("66e915ee84750e7d67b3ec6a"); // Checks if the ID matches
+    expect(data.name).to.equal("curry"); // Checks if the name matches the item name
+    expect(data.description).to.be.a('string'); // Validates 'description' is a string
+    expect(data.price).to.be.a('number'); // Validates 'price' is a number
+  });
+  
+}

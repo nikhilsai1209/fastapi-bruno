@@ -1,0 +1,51 @@
+meta {
+  name: Create Item
+  type: http
+  seq: 1
+}
+
+post {
+  url: http://localhost:8000/items/
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "name": "Sample Item",
+    "description": "This is a sample description.",
+    "price": 150
+  }
+  
+}
+
+tests {
+  test("status code test", function() {
+    expect(res.getStatus()).to.equal(201); // Ensures the response status code is 201
+  });
+  
+  test("name data type test", function() {
+    const data = res.getBody();
+    expect(data.name).to.be.a('string'); // Ensures 'name' is a string
+  });
+  
+  test("name value test", function() {
+    const data = res.getBody();
+    expect(data.name).to.equal("morpheus"); // Checks if 'name' matches the value sent
+  });
+  
+  test("description value test", function() {
+    const data = res.getBody();
+    expect(data.description).to.equal("A sample description for morpheus"); // Verifies description
+  });
+  
+  test("price value test", function() {
+    const data = res.getBody();
+    expect(data.price).to.equal(150); // Validates price value
+  });
+  
+  test("status text check", function() {
+    expect(res.statusText).to.equal("Created"); // Ensures the status text matches "Created"
+  });
+  
+}

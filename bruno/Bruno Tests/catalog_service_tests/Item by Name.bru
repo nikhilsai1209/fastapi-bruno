@@ -1,0 +1,30 @@
+meta {
+  name: Item by Name
+  type: http
+  seq: 3
+}
+
+get {
+  url: http://localhost:8000/items?name=curry
+  body: none
+  auth: none
+}
+
+params:query {
+  name: curry
+}
+
+tests {
+  test("status code test", function() {
+    expect(res.getStatus()).to.equal(200); // Ensures the response status code is 200
+  });
+  
+  test("response body test", function() {
+    const data = res.getBody(); // Get the response body
+    expect(data).to.be.an('object'); // Validates that the response is an object
+    expect(data.name).to.equal("curry"); // Ensure name matches the query ("curry")
+    expect(data.description).to.be.a('string'); // Validates 'description' is a string
+    expect(data.price).to.be.a('number'); // Validates 'price' is a number
+  });
+  
+}

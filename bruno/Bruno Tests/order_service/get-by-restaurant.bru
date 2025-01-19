@@ -1,0 +1,26 @@
+meta {
+  name: get-by-restaurant
+  type: http
+  seq: 4
+}
+
+get {
+  url: http://127.0.0.1:8080/api/v1/orders/restaurant/66e97c0305dd720757ac1912
+  body: none
+  auth: none
+}
+
+tests {
+  test("Get Orders by Restaurant ID - Status Code Test", function() {
+    expect(res.getStatus()).to.equal(200); // Check if status code is 200 (OK)
+  });
+  
+  test("Get Orders by Restaurant ID - Response Body Test", function() {
+    const data = res.getBody();
+  
+    expect(data).to.be.an("array"); // Ensure the response is an array
+    expect(data).to.have.length.greaterThan(0); // Check if there are orders for the specified restaurant
+    expect(data[0].restaurant_id).to.equal("66e97c0305dd720757ac1912"); // Verify that the restaurant_id is correct
+  });
+  
+}

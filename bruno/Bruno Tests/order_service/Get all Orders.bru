@@ -1,0 +1,25 @@
+meta {
+  name: Get all Orders
+  type: http
+  seq: 3
+}
+
+get {
+  url: http://127.0.0.1:8080/api/v1/orders/
+  body: none
+  auth: none
+}
+
+tests {
+  test("Get All Orders - Status Code Test", function() {
+    expect(res.getStatus()).to.equal(200); // Ensure status code is 200
+  });
+  
+  test("Get All Orders - Response Body Test", function() {
+    const data = res.getBody();
+  
+    expect(data).to.be.an("array"); // Check if the response is an array
+    expect(data).to.have.length.greaterThan(0); // Ensure there is at least one order
+  });
+  
+}
