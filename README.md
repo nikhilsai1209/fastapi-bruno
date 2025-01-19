@@ -16,9 +16,9 @@ This is a robust backend project using **FastAPI** and **MongoDB** (via **Beanie
 | Feature                  | Description                              |
 |--------------------------|------------------------------------------|
 | **CRUD Operations**      | Full support for Create, Read, Update, and Delete. |
-| **Interactive API Docs** | Swagger UI and ReDoc available for testing. |
+| **Interactive API Docs** | Swagger UI available for testing. |
 | **MongoDB Integration**  | Simplified ODM layer via Beanie.         |
-| **Easy Testing**         | Compatible with Bruno and Postman.       |
+| **Easy Testing**         | Compatible with Bruno.       |
 
 ---
 
