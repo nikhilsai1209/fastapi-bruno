@@ -36,25 +36,25 @@ This repository contains the catalog and order services for an e-commerce platfo
 
 7. Set Up MongoDB
      Go to MongoDB Atlas and sign up or log in.
-     Create a new project and cluster:
-    
-    Click "Create a Cluster" and select a free or paid plan.
-    Choose your cloud provider and region.
-    Complete the setup and create your cluster.
+
+    Create a new project and cluster:
+       -> Click "Create a Cluster" and select a free or paid plan.
+       -> Choose your cloud provider and region.
+       -> Complete the setup and create your cluster.
+
     Whitelist your IP address:
-    
-    Go to the Network Access tab in Atlas.
-    Click Add IP Address and add your current IP or allow access from anywhere (0.0.0.0/0).
+       -> Go to the Network Access tab in Atlas.
+       -> Click Add IP Address and add your current IP or allow access from anywhere (0.0.0.0/0).
+
     Create a database user:
-    
-    Go to the Database Access tab.
-    Click Add New Database User and set a username and password.
+       -> Go to the Database Access tab.
+       -> Click Add New Database User and set a username and password.
+
     Connect to your cluster:
-    
-    Go to the Clusters tab.
-    Click Connect and select Connect Your Application.
-    Copy the connection string. Replace <username> and <password> with your database credentials.
-    Use the connection string in your application: mongodb_uri = "mongodb+srv://<username>:<password>@<cluster-url>/test?retryWrites=true&w=majority"
+       -> Go to the Clusters tab.
+       -> Click Connect and select Connect Your Application.
+       -> Copy the connection string. Replace <username> and <password> with your database credentials.
+       -> Use the connection string in your application: mongodb_uri = "mongodb+srv://<username>:<password>@<cluster-url>/test?retryWrites=true&w=majority"
 
 8. Run the Catalog Service
      uvicorn catalog_service.main:app --reload --host 0.0.0.0 --port 8000
