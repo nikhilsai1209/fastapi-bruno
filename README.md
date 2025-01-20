@@ -1,4 +1,12 @@
+<<<<<<< HEAD
 # Project Name
+=======
+
+# **FastAPI Order Management System** 🚀  
+![Python](https://img.shields.io/badge/Python-3.8%2B-blue)  
+![FastAPI](https://img.shields.io/badge/FastAPI-Framework-green)  
+![MongoDB](https://img.shields.io/badge/Database-MongoDB-brightgreen)
+>>>>>>> 4b4fddb (commiting rest of the files)
 
 This repository contains the catalog and order services for an e-commerce platform, built using FastAPI, Beanie, and MongoDB. It also includes an integration with **Bruno** for API testing.
 
