@@ -65,10 +65,10 @@ This repository contains the catalog and order services for an e-commerce platfo
        -> Use the connection string in your application: mongodb_uri = "mongodb+srv://<username>:<password>@<cluster-url>/test?retryWrites=true&w=majority"
 
 8. Run the Catalog Service
-     uvicorn catalog_service.main:app --reload --host 0.0.0.0 --port 8000
+     uvicorn catalog_service.main:app --reload --host 127.0.0.1 --port 8000
 
 9. Run the Order Service
-     uvicorn order_service.main:app --reload --host 0.0.0.0 --port 8080
+     uvicorn order_service.main:app --reload --host 127.0.0.1 --port 8080
 
 10. Accessing Your App
     You can access the Swagger UI for the services at the following URLs:
