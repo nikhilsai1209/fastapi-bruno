@@ -10,6 +10,15 @@ get {
   auth: none
 }
 
+assert {
+  typeof res.body: eq "object"
+  res.body.id: eq "66eeb2fa796e7100066b3fc2"
+  res.body.user_id: eq 66eab88bcbe808aaf5c45c63
+  res.body.restaurant_id: eq "66e97c0305dd720757ac1912"
+  res.body.total_price: eq 1500.0
+  res.status: eq 200
+}
+
 tests {
   test("Get Order by ID - Status Code Test", function() {
     expect(res.getStatus()).to.equal(200); // Check if status code is 200 (OK)

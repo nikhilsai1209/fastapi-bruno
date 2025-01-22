@@ -4,8 +4,12 @@ from order_service.models import Order  # Import your Order model
 from user_service.models import User  # Ensure correct path
 from restaurant_service.models import Restaurant  # Ensure correct path
 from items_service.models import Item  # Ensure correct path
+import os
+from dotenv import load_dotenv 
+load_dotenv()
 
-MONGO_URI = "mongodb+srv://nikhilthentu:r9w0u4OZDx2M4Eeh@cluster0.wgn3c.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+
+MONGO_URI = os.getenv("DB_CONNECTION_STRING") 
 DB_NAME = "food_delivery"
 
 async def init_db():

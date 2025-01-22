@@ -10,6 +10,15 @@ get {
   auth: none
 }
 
+assert {
+  res.status: eq 200
+  Array.isArray(res.body): eq true
+  res.body.length: gt 0
+  res.body[0].hasOwnProperty('id'): eq true
+  res.body[0].hasOwnProperty('user_id'): eq true
+  res.body[0].hasOwnProperty('items'): eq true
+}
+
 tests {
   test("Get All Orders - Status Code Test", function() {
     expect(res.getStatus()).to.equal(200); // Ensure status code is 200

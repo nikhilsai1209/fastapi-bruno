@@ -10,6 +10,12 @@ get {
   auth: none
 }
 
+assert {
+  res.status: eq 200
+  res.body.hasOwnProperty('id'): eq true
+  res.body.name: eq "curry"
+}
+
 tests {
   test("status code test for item by id", function() {
     expect(res.getStatus()).to.equal(200); // Ensures the response status code is 200

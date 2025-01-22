@@ -10,6 +10,17 @@ get {
   auth: none
 }
 
+params:query {
+  : 
+}
+
+assert {
+  res.status: eq 200
+  Array.isArray(res.body): eq true
+  Array.isArray(res.body): eq "66e97c0305dd720757ac1912"
+  res.body[0].hasOwnProperty('user_id'): eq true
+}
+
 tests {
   test("Get Orders by Restaurant ID - Status Code Test", function() {
     expect(res.getStatus()).to.equal(200); // Check if status code is 200 (OK)

@@ -14,6 +14,13 @@ params:query {
   name: curry
 }
 
+assert {
+  res.status: eq 200
+  typeof res.body: eq "object"
+  res.body.name: eq "curry"
+  res.body.price: gt 0
+}
+
 tests {
   test("status code test", function() {
     expect(res.getStatus()).to.equal(200); // Ensures the response status code is 200

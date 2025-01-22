@@ -1,9 +1,12 @@
 from beanie import init_beanie
 from motor.motor_asyncio import AsyncIOMotorClient
 from catalog_service.models import Items
+import os
+from dotenv import load_dotenv 
+load_dotenv()
 
 # Hardcoded MongoDB connection details
-MONGO_URI = "mongodb+srv://nikhilthentu:r9w0u4OZDx2M4Eeh@cluster0.wgn3c.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+MONGO_URI = os.getenv("DB_CONNECTION_STRING") 
   # Replace with your MongoDB URI
 DB_NAME = "food_Db"                    # Replace with your database name
 

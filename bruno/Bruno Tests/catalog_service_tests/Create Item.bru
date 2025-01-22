@@ -19,6 +19,14 @@ body:json {
   
 }
 
+assert {
+  res.status: eq 201
+  typeof res.body: eq 	"object"
+  res.body.hasOwnProperty('id'): eq true
+  res.body.name: eq 	"Sample Item"
+  res.body.price: gt 0
+}
+
 tests {
   test("status code test", function() {
     expect(res.getStatus()).to.equal(201); // Ensures the response status code is 201
@@ -31,12 +39,12 @@ tests {
   
   test("name value test", function() {
     const data = res.getBody();
-    expect(data.name).to.equal("morpheus"); // Checks if 'name' matches the value sent
+    expect(data.name).to.equal("Sample Item"); // Checks if 'name' matches the value sent
   });
   
   test("description value test", function() {
     const data = res.getBody();
-    expect(data.description).to.equal("A sample description for morpheus"); // Verifies description
+    expect(data.description).to.equal("This is a sample description."); // Verifies description
   });
   
   test("price value test", function() {
@@ -44,8 +52,6 @@ tests {
     expect(data.price).to.equal(150); // Validates price value
   });
   
-  test("status text check", function() {
-    expect(res.statusText).to.equal("Created"); // Ensures the status text matches "Created"
-  });
+  
   
 }

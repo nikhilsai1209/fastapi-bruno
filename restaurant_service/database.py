@@ -1,4 +1,5 @@
 from beanie import init_beanie
+import os
 from motor.motor_asyncio import AsyncIOMotorClient
 from restaurant_service.models import Restaurant
 
