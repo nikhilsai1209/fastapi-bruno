@@ -75,9 +75,16 @@ This repository contains the catalog and order services for an e-commerce platfo
     Catalog Service: http://127.0.0.1:8000/docs
     Order Service: http://127.0.0.1:8080/docs
 
-11. Running Bruno Files
-    The Bruno files are located in the bruno/ directory. To test APIs:
-    Open Bruno.
-    Load the bruno/ folder as a collection.
-    Test all the APIs directly using Bruno.
+11. Running Bruno Files:
+     .RUNNING IN BRUNO:
+       -> The Bruno files are located in the bruno/ directory. To test APIs:
+       -> Open Bruno.
+       -> Load the bruno/ folder as a collection.
+       -> Test all the APIs directly using Bruno.
+    .RUNNING LOCALLY:
+      -> Navigate to yout bruno tests directory {example :cd /path/to/your/bruno/workspace}
+      -> Run the below command: 
+         bru run --env=your_environment_name 
+    
+
 
