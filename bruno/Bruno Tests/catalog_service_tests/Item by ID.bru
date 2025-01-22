@@ -5,7 +5,7 @@ meta {
 }
 
 get {
-  url: http://localhost:8000/items/66e915ee84750e7d67b3ec6a
+  url: http://127.0.0.1:8000/items/6790bf40ca0629071484fdd9
   body: none
   auth: none
 }
@@ -13,7 +13,7 @@ get {
 assert {
   res.status: eq 200
   res.body.hasOwnProperty('id'): eq true
-  res.body.name: eq "curry"
+  res.body.name: eq "poori"
 }
 
 tests {
@@ -24,8 +24,8 @@ tests {
   test("response body test for item by id", function() {
     const data = res.getBody();
     expect(data).to.be.an('object'); // Validates that the response is an object
-    expect(data.id).to.equal("66e915ee84750e7d67b3ec6a"); // Checks if the ID matches
-    expect(data.name).to.equal("curry"); // Checks if the name matches the item name
+    expect(data.id).to.equal("6790bf40ca0629071484fdd9"); // Checks if the ID matches
+    expect(data.name).to.equal("poori"); // Checks if the name matches the item name
     expect(data.description).to.be.a('string'); // Validates 'description' is a string
     expect(data.price).to.be.a('number'); // Validates 'price' is a number
   });

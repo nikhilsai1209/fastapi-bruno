@@ -9,7 +9,8 @@ from dotenv import load_dotenv
 load_dotenv()
 
 
-MONGO_URI = os.getenv("DB_CONNECTION_STRING") 
+##MONGO_URI = os.getenv("DB_CONNECTION_STRING") 
+MONGO_URI = "mongodb+srv://nikhilthentu:r9w0u4OZDx2M4Eeh@cluster0.wgn3c.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
 DB_NAME = "food_delivery"
 
 async def init_db():

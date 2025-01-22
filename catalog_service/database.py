@@ -8,6 +8,7 @@ load_dotenv()
 # Hardcoded MongoDB connection details
 MONGO_URI = os.getenv("DB_CONNECTION_STRING") 
   # Replace with your MongoDB URI
+##MONGO_URI = "mongodb+srv://nikhilthentu:r9w0u4OZDx2M4Eeh@cluster0.wgn3c.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
 DB_NAME = "food_Db"                    # Replace with your database name
 
 async def init_db():

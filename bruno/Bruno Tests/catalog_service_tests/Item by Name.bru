@@ -5,19 +5,19 @@ meta {
 }
 
 get {
-  url: http://localhost:8000/items?name=curry
+  url: http://127.0.0.1:8000/items/?name=poori
   body: none
   auth: none
 }
 
 params:query {
-  name: curry
+  name: poori
 }
 
 assert {
   res.status: eq 200
   typeof res.body: eq "object"
-  res.body.name: eq "curry"
+  res.body.name: eq "poori"
   res.body.price: gt 0
 }
 
@@ -29,7 +29,7 @@ tests {
   test("response body test", function() {
     const data = res.getBody(); // Get the response body
     expect(data).to.be.an('object'); // Validates that the response is an object
-    expect(data.name).to.equal("curry"); // Ensure name matches the query ("curry")
+    expect(data.name).to.equal("poori"); // Ensure name matches the query ("curry")
     expect(data.description).to.be.a('string'); // Validates 'description' is a string
     expect(data.price).to.be.a('number'); // Validates 'price' is a number
   });

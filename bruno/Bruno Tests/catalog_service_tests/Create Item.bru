@@ -5,15 +5,15 @@ meta {
 }
 
 post {
-  url: http://localhost:8000/items/
+  url: http://127.0.0.1:8000/items/
   body: json
   auth: none
 }
 
 body:json {
   {
-    "name": "Sample Item",
-    "description": "This is a sample description.",
+    "name": "poori",
+    "description": "delicious",
     "price": 150
   }
   
@@ -23,7 +23,7 @@ assert {
   res.status: eq 201
   typeof res.body: eq 	"object"
   res.body.hasOwnProperty('id'): eq true
-  res.body.name: eq 	"Sample Item"
+  res.body.name: eq 	"poori"
   res.body.price: gt 0
 }
 
@@ -39,12 +39,12 @@ tests {
   
   test("name value test", function() {
     const data = res.getBody();
-    expect(data.name).to.equal("Sample Item"); // Checks if 'name' matches the value sent
+    expect(data.name).to.equal("poori"); // Checks if 'name' matches the value sent
   });
   
   test("description value test", function() {
     const data = res.getBody();
-    expect(data.description).to.equal("This is a sample description."); // Verifies description
+    expect(data.description).to.equal("delicious"); // Verifies description
   });
   
   test("price value test", function() {
